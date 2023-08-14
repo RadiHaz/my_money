@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,11 +23,6 @@ class _HomePageState extends State<HomePage> {
 
   void _incrementCounter() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
       _counter++;
     });
   }
@@ -39,17 +33,25 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     const Icon(Icons.ice_skating);
     return Scaffold(
       appBar: AppBar(
         // Theme.of(context).colorScheme.inversePrimary
-        backgroundColor: Colors.amber,
+        backgroundColor: Colors.transparent,
         title: Text(widget.title),
         centerTitle: true,
         leading: const Icon(Icons.verified_user_rounded),
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.logout_rounded))],
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.logout_rounded))
+        ],
       ),
       body: Center(
         child: Column(
@@ -57,6 +59,7 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             const Text(
               'You have pushed the button this many times:',
+              style: TextStyle(color: Colors.black),
             ),
             Text(
               '$_counter',
@@ -65,28 +68,63 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-      bottomSheet: Container(
-        width: MediaQuery.of(context).size.width,
-        decoration: const BoxDecoration(
-          shape: BoxShape.rectangle,
-          color: Colors.white,
-        ),
-        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: ElevatedButton(
-          onPressed: _resetCounter,
-          child: const Text(
-            "Reset counter",
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold
+      floatingActionButton: Wrap(
+        //will break to another line on overflow
+        direction: Axis.horizontal, //use vertical to show  on vertical axis
+        children: <Widget>[
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Colors.purple,
+                Colors.white,
+              ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  transform: GradientRotation(3.14 / 6)
+              ),
+              shape: BoxShape.circle,
             ),
+            child: FloatingActionButton(
+                onPressed: _resetCounter,
+                backgroundColor: Colors.transparent,
+                child: const Icon(Icons.restart_alt_rounded)),
           ),
-        )
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Colors.purple,
+                Colors.white,
+              ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  transform: GradientRotation(3.14 / 6)
+              ),
+              shape: BoxShape.circle,
+            ),
+            child: FloatingActionButton(
+                onPressed: _decrementCounter,
+                backgroundColor: Colors.transparent,
+                child: const Icon(Icons.exposure_minus_1)),
+          ),// button third
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Colors.purple,
+                Colors.white,
+              ], 
+                  begin: Alignment.topLeft, 
+                  end: Alignment.bottomRight,
+                transform: GradientRotation(3.14 / 6)
+              ),
+              shape: BoxShape.circle,
+            ),
+            child: FloatingActionButton(
+                onPressed: _incrementCounter,
+                backgroundColor: Colors.transparent,
+                child: const Icon(Icons.exposure_plus_1)),
+          ),
+          // Add more buttons here
+        ],
       ),
     );
   }
