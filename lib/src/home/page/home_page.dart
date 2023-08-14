@@ -20,6 +20,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _counter = 0;
+  int _counterResetTaps = 0;
 
   void _incrementCounter() {
     setState(() {
@@ -31,12 +32,26 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _counter = 0;
     });
+    setState(() {
+      _counterResetTaps++;
+    });
   }
 
   void _decrementCounter() {
     setState(() {
       _counter--;
     });
+  }
+
+  _matchColors(param) {
+    return BoxDecoration(
+      gradient: LinearGradient(
+          colors: param,
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          transform: const GradientRotation(3.14 / 6)),
+      shape: BoxShape.circle,
+    );
   }
 
   @override
@@ -57,8 +72,12 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text(
+              'You have pushed the Reset button $_counterResetTaps times',
+              style: const TextStyle(color: Colors.deepOrange),
+            ),
             const Text(
-              'You have pushed the button this many times:',
+              'Current value:',
               style: TextStyle(color: Colors.black),
             ),
             Text(
@@ -72,57 +91,36 @@ class _HomePageState extends State<HomePage> {
         //will break to another line on overflow
         direction: Axis.horizontal, //use vertical to show  on vertical axis
         children: <Widget>[
-          Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(colors: [
-                Colors.purple,
-                Colors.white,
-              ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  transform: GradientRotation(3.14 / 6)
-              ),
-              shape: BoxShape.circle,
-            ),
-            child: FloatingActionButton(
-                onPressed: _resetCounter,
-                backgroundColor: Colors.transparent,
-                child: const Icon(Icons.restart_alt_rounded)),
-          ),
-          Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(colors: [
-                Colors.purple,
-                Colors.white,
-              ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  transform: GradientRotation(3.14 / 6)
-              ),
-              shape: BoxShape.circle,
-            ),
-            child: FloatingActionButton(
-                onPressed: _decrementCounter,
-                backgroundColor: Colors.transparent,
-                child: const Icon(Icons.exposure_minus_1)),
-          ),// button third
-          Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(colors: [
-                Colors.purple,
-                Colors.white,
-              ], 
-                  begin: Alignment.topLeft, 
-                  end: Alignment.bottomRight,
-                transform: GradientRotation(3.14 / 6)
-              ),
-              shape: BoxShape.circle,
-            ),
-            child: FloatingActionButton(
-                onPressed: _incrementCounter,
-                backgroundColor: Colors.transparent,
-                child: const Icon(Icons.exposure_plus_1)),
-          ),
+          FloatingActionButton(
+              onPressed: _resetCounter,
+              backgroundColor: Colors.deepOrange,
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Colors.transparent,
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(Icons.restart_alt_rounded, color: Colors.white,),
+              )),
+          FloatingActionButton(
+              onPressed: _decrementCounter,
+              backgroundColor: null,
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Colors.transparent,
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(Icons.exposure_minus_1_rounded, color: Colors.black87,),
+              )), // button third
+          FloatingActionButton(
+              onPressed: _incrementCounter,
+              backgroundColor: null,
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Colors.transparent,
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(Icons.plus_one_rounded,  color: Colors.black87,),
+              )),
           // Add more buttons here
         ],
       ),
