@@ -22,18 +22,14 @@ class AppLogoTitle extends StatelessWidget {
           color: AppColors.logo,
           size: iconSize ?? 100,
         ),
-        Padding(
-            padding: const EdgeInsets.only(
-              top: 10,
-              bottom: 25,
-            ),
-            child: Text(
-              title,
-              style: TextStyle(
-                  color: AppColors.logo,
-                  fontSize: titleSize ?? 20,
-                  fontWeight: FontWeight.bold),
-            ))
+        const SizedBox(height: 10,),
+        Text(
+          title,
+          style: TextStyle(
+              color: AppColors.logo,
+              fontSize: titleSize ?? 20,
+              fontWeight: FontWeight.bold),
+        )
       ],
     );
   }

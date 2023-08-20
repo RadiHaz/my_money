@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_money/src/modules/login/components/button_tile.dart';
 import 'package:my_money/src/modules/login/components/my_text_form_field.dart';
 import 'package:my_money/src/modules/login/components/register_link.dart';
 import 'package:my_money/src/shared/colors/app_colors.dart';
@@ -36,13 +37,13 @@ class _LoginPageState extends State<LoginPage> {
     //resolve final width to make it dynamic based on screen size
     // 0.8 = 80% of screen's width
     bool isLargeScreen = screenWidth >= 720;
-    double resolvedWidth = isLargeScreen ? screenWidth * 0.6 : screenWidth * 0.7;
-    if(screenWidth > 720) {
-      resolvedWidth = screenWidth * 0.7;
-    } else {
+    double resolvedWidth =
+        isLargeScreen ? screenWidth * 0.6 : screenWidth * 0.7;
+    if (screenWidth > 720) {
       resolvedWidth = screenWidth * 0.6;
+    } else {
+      resolvedWidth = screenWidth * 0.8;
     }
-
 
     return isLoading
         ? const Center(child: AppLoading())
@@ -50,10 +51,10 @@ class _LoginPageState extends State<LoginPage> {
             backgroundColor: AppColors.appPageBackground,
             body: SingleChildScrollView(
               child: SafeArea(
-                  child: Center (
+                  child: Center(
                 child: Padding(
                   padding: const EdgeInsets.only(
-                    top: 140,
+                    top: 100,
                   ),
                   child: SizedBox(
                     width: resolvedWidth,
@@ -66,15 +67,43 @@ class _LoginPageState extends State<LoginPage> {
                             iconSize: 80,
                             titleSize: 40,
                           ),
-                          MyTextFormField(labelText: 'Login', controller: loginController, focus: true),
+                          const SizedBox(height: 50),
+                          MyTextFormField(
+                              labelText: 'Username',
+                              controller: loginController,
+                              focus: true),
                           const SizedBox(height: 10),
-                          MyTextFormField(labelText: 'Password', controller: passwordController, obscureText: true,),
-                          Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 25, bottom: 25),
-                              child: AppButton(action: () {}, label: "Login")),
+                          MyTextFormField(
+                            labelText: 'Password',
+                            controller: passwordController,
+                            obscureText: true,
+                          ),
+                          const SizedBox(height: 10,),
+                          const Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text('Forgot password?', style: TextStyle(color: AppColors.secondaryText)),
+                            ],
+                          ),
+                          const SizedBox(height: 20,),
+                          AppButton(action: () {}, label: "Login"),
+                          const SizedBox(height: 20,),
+                          const Text('Or continue with', style: TextStyle(fontSize: 18, color: AppColors.secondaryText),),
+                          const SizedBox(height: 25),
+                          const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ButtonTile(imagePath: 'lib/images/google.png'),
+                              SizedBox(
+                                width: 35,
+                              ),
+                              ButtonTile(imagePath: 'lib/images/apple.png')
+                            ],
+                          ),
+                          const SizedBox(height: 50),
                           GestureDetector(
                               onTap: () {}, child: const RegisterLink()),
+                          //row (Google, Apple)
                         ]),
                   ),
                 ),

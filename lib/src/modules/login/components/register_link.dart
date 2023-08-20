@@ -10,7 +10,7 @@ class RegisterLink extends StatelessWidget {
       alignment: WrapAlignment.center,
       children: [
         Text(
-          'Faça seu cadastro no ',
+          'Don\'t have an account? ',
           style: TextStyle(
             color: AppColors.secondaryText,
             fontWeight: FontWeight.bold,
@@ -18,11 +18,11 @@ class RegisterLink extends StatelessWidget {
           ),
         ),
         Text(
-          'My Money aqui',
+          'Sign up here',
           style: TextStyle(
             color: AppColors.logo,
             fontWeight: FontWeight.bold,
-            fontSize: 18,
+            fontSize: 18
           ),
         ),
       ],
