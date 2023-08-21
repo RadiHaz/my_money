@@ -4,7 +4,7 @@ import 'package:my_money/src/shared/colors/app_colors.dart';
 class ButtonTile extends StatelessWidget {
   final String imagePath;
   final double width;
-  const ButtonTile({super.key, required this.imagePath, this.width = 20.0});
+  const ButtonTile({super.key, required this.imagePath, this.width = 30.0});
 
   @override
   Widget build(BuildContext context) {

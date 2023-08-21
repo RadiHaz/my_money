@@ -7,7 +7,9 @@ class RegisterLink extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Wrap(
+      direction: Axis.vertical,
       alignment: WrapAlignment.center,
+      crossAxisAlignment: WrapCrossAlignment.center,
       children: [
         Text(
           'Don\'t have an account? ',
