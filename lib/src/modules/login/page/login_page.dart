@@ -32,13 +32,20 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    //get screenWidth
+    // get screenWidth
     double screenWidth = MediaQuery.of(context).size.width;
-    //resolve final width to make it dynamic based on screen size
-    // 0.8 = 80% of screen's width
-    bool isLargeScreen = screenWidth >= 720;
+
+    bool isSmallScreen = screenWidth < 720;
+    bool isMediumScreen = screenWidth >= 720 && screenWidth < 1280;
+    bool isLargeScreen = screenWidth >= 1280;
+    // resolve final width to make it dynamic based on screen size
+    // screenWidth * 0.8 = 80% of screen's width :)
+    //* 0.5 : screenWidth * 0.8
+    //screenWidth
     double resolvedWidth =
-        isLargeScreen ? screenWidth * 0.6 : screenWidth * 0.8;
+    isSmallScreen ? (screenWidth * 0.4) :
+        isMediumScreen ? (screenWidth * 0.7)
+            : (isLargeScreen ? screenWidth * 0.6 : screenWidth * 0.5);
 
     return isLoading
         ? const Center(child: AppLoading())
@@ -49,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Center(
                 child: Padding(
                   padding: const EdgeInsets.only(
-                    top: 100,
+                    top: 80,
                   ),
                   child: SizedBox(
                     width: resolvedWidth,
@@ -62,12 +69,16 @@ class _LoginPageState extends State<LoginPage> {
                             iconSize: 80,
                             titleSize: 40,
                           ),
-                          const SizedBox(height: 50),
+                          const SizedBox(
+                            height: 50,
+                          ),
                           MyTextFormField(
                               labelText: 'Username',
                               controller: loginController,
                               focus: true),
-                          const SizedBox(height: 10),
+                          const SizedBox(
+                            height: 10,
+                          ),
                           MyTextFormField(
                             labelText: 'Password',
                             controller: passwordController,
@@ -98,7 +109,9 @@ class _LoginPageState extends State<LoginPage> {
                             style: TextStyle(
                                 fontSize: 18, color: AppColors.secondaryText),
                           ),
-                          const SizedBox(height: 25),
+                          const SizedBox(
+                            height: 25,
+                          ),
                           const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -106,10 +119,12 @@ class _LoginPageState extends State<LoginPage> {
                               SizedBox(
                                 width: 35,
                               ),
-                              ButtonTile(imagePath: 'lib/images/apple.png')
+                              ButtonTile(imagePath: 'lib/images/apple.png', width: screenWidth,)
                             ],
                           ),
-                          const SizedBox(height: 50),
+                          const SizedBox(
+                            height: 25,
+                          ),
                           GestureDetector(
                               onTap: () {}, child: const RegisterLink()),
                           //row (Google, Apple)

@@ -3,7 +3,8 @@ import 'package:my_money/src/shared/colors/app_colors.dart';
 
 class ButtonTile extends StatelessWidget {
   final String imagePath;
-  const ButtonTile({super.key, required this.imagePath});
+  final double width;
+  const ButtonTile({super.key, required this.imagePath, this.width = 20.0});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class ButtonTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         color: AppColors.inputBackground
       ),
-      child: Image.asset(imagePath, height: 30,),
+      child: Image.asset(imagePath, height: 30, width: width,),
     );
   }
 }
