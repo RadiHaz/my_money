@@ -14,7 +14,6 @@ class RegisterLink extends StatelessWidget {
           style: TextStyle(
             color: AppColors.secondaryText,
             fontWeight: FontWeight.bold,
-            fontSize: 18,
           ),
         ),
         Text(
@@ -22,7 +21,6 @@ class RegisterLink extends StatelessWidget {
           style: TextStyle(
             color: AppColors.logo,
             fontWeight: FontWeight.bold,
-            fontSize: 18
           ),
         ),
       ],

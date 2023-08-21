@@ -14,7 +14,7 @@ class ButtonTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         color: AppColors.inputBackground
       ),
-      child: Image.asset(imagePath, height: 40,),
+      child: Image.asset(imagePath, height: 30,),
     );
   }
 }

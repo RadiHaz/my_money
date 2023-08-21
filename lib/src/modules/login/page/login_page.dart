@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
     Future.delayed(
       const Duration(seconds: 1),
     ).then((_) => setState(() {
-          isLoading = false;
+          isLoading = !isLoading;
         }));
   }
 
@@ -38,12 +38,7 @@ class _LoginPageState extends State<LoginPage> {
     // 0.8 = 80% of screen's width
     bool isLargeScreen = screenWidth >= 720;
     double resolvedWidth =
-        isLargeScreen ? screenWidth * 0.6 : screenWidth * 0.7;
-    if (screenWidth > 720) {
-      resolvedWidth = screenWidth * 0.6;
-    } else {
-      resolvedWidth = screenWidth * 0.8;
-    }
+        isLargeScreen ? screenWidth * 0.6 : screenWidth * 0.8;
 
     return isLoading
         ? const Center(child: AppLoading())
@@ -78,17 +73,31 @@ class _LoginPageState extends State<LoginPage> {
                             controller: passwordController,
                             obscureText: true,
                           ),
-                          const SizedBox(height: 10,),
+                          const SizedBox(
+                            height: 10,
+                          ),
                           const Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Text('Forgot password?', style: TextStyle(color: AppColors.secondaryText)),
+                              Text('Forgot password?',
+                                  style: TextStyle(
+                                      color: AppColors.secondaryText)),
                             ],
                           ),
-                          const SizedBox(height: 20,),
-                          AppButton(action: () {}, label: "Login"),
-                          const SizedBox(height: 20,),
-                          const Text('Or continue with', style: TextStyle(fontSize: 18, color: AppColors.secondaryText),),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          AppButton(
+                              action: () => isLoading = !isLoading,
+                              label: "Login"),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const Text(
+                            'Or continue with',
+                            style: TextStyle(
+                                fontSize: 18, color: AppColors.secondaryText),
+                          ),
                           const SizedBox(height: 25),
                           const Row(
                             mainAxisAlignment: MainAxisAlignment.center,

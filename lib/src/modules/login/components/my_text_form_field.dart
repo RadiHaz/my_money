@@ -26,6 +26,7 @@ class MyTextFormField extends StatelessWidget {
               borderSide: BorderSide(color: AppColors.logo)),
           enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: AppColors.inputBorder))),
+      cursorColor: AppColors.logo,
       enabled: true,
       style: const TextStyle(color: AppColors.mainText),
       controller: controller,
