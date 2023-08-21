@@ -104,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Center(
                   child: Padding(
                     padding: EdgeInsets.only(
-                      top: screenHeight * 0.025,
+                      top: screenHeight * 0.05,
                     ),
                     child: SizedBox(
                       width: resolvedWidth,
@@ -161,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                                   fontSize: 18, color: AppColors.secondaryText),
                             ),
                             SizedBox(
-                              height: screenHeight * 0.05,
+                              height: screenHeight * 0.025,
                             ),
                             _defineLayout(),
                             SizedBox(
@@ -170,7 +170,7 @@ class _LoginPageState extends State<LoginPage> {
                             GestureDetector(
                                 onTap: () {}, child: const RegisterLink()),
                             SizedBox(
-                              height: screenHeight * 0.01,
+                              height: screenHeight * 0.05,
                             )
                             //row (Google, Apple)
                           ]),
