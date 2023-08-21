@@ -160,17 +160,17 @@ class _LoginPageState extends State<LoginPage> {
                               style: TextStyle(
                                   fontSize: 18, color: AppColors.secondaryText),
                             ),
-                            const SizedBox(
-                              height: 25,
+                            SizedBox(
+                              height: screenHeight * 0.05,
                             ),
                             _defineLayout(),
-                            const SizedBox(
-                              height: 25,
+                            SizedBox(
+                              height: screenHeight * 0.05,
                             ),
                             GestureDetector(
                                 onTap: () {}, child: const RegisterLink()),
-                            const SizedBox(
-                              height: 25,
+                            SizedBox(
+                              height: screenHeight * 0.01,
                             )
                             //row (Google, Apple)
                           ]),
