@@ -40,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
     var colChildren = [
       const ButtonTile(imagePath: 'lib/images/google.png'),
       SizedBox(
-        height: _screenHeight * 0.4,
+        height: _screenHeight * 0.025,
       ),
       const ButtonTile(
         imagePath: 'lib/images/apple.png',
@@ -187,7 +187,7 @@ class _LoginPageState extends State<LoginPage> {
                                   height: 20,
                                 ),
                                 AppButton(
-                                    action: () => isLoading = !isLoading,
+                                    action: () {},
                                     label: "Login"),
                                 const SizedBox(
                                   height: 20,
@@ -203,12 +203,12 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                                 _defineLayout(),
                                 SizedBox(
-                                  height: _screenHeight * 0.05,
+                                  height: _screenHeight * 0.025,
                                 ),
                                 GestureDetector(
                                     onTap: () {}, child: const RegisterLink()),
                                 SizedBox(
-                                  height: _screenHeight * 0.05,
+                                  height: _screenHeight * 0.025,
                                 )
                                 //row (Google, Apple)
                               ]),
