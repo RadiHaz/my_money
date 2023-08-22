@@ -9,5 +9,5 @@ class AppColors {
   static const Color secondaryText = Colors.black45;
   static const Color inputBackground = Colors.white;
   static const Color inputBorder = Colors.white10;
-  static const Color containerShadow = Colors.black12;
+  static const Color containerShadow = Colors.white12;
 }

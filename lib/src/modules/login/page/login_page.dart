@@ -127,15 +127,15 @@ class _LoginPageState extends State<LoginPage> {
                             AppColors.appPageBackground,
                             AppColors.inputBackground
                           ],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
+                          begin: Alignment.bottomRight,
+                          end: Alignment.topLeft,
                         ),
                         boxShadow: [
                           BoxShadow(
                               color: AppColors.containerShadow,
                               spreadRadius: 5,
                               blurRadius: 100,
-                              offset: Offset(0, 0))
+                              offset: Offset(0, -125))
                         ]),
                     child: Center(
                       child: Padding(
@@ -176,7 +176,7 @@ class _LoginPageState extends State<LoginPage> {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Text(
-                                      'Forgot password?',
+                                      'Forgot your password?',
                                       style: TextStyle(
                                         color: AppColors.secondaryText,
                                       ),
