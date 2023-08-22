@@ -37,31 +37,31 @@ class _LoginPageState extends State<LoginPage> {
   _defineLayout() {
     //if isSmallScreen buttonDirection = Column
     // else buttonDirection = Row
-    const colChildren = [
-      ButtonTile(imagePath: 'lib/images/google.png'),
+    var colChildren = [
+      const ButtonTile(imagePath: 'lib/images/google.png'),
       SizedBox(
-        height: 35,
+        height: _screenHeight * 0.4,
       ),
-      ButtonTile(
+      const ButtonTile(
         imagePath: 'lib/images/apple.png',
       )
     ];
 
-    const rowChildren = [
-      ButtonTile(imagePath: 'lib/images/google.png'),
+    var rowChildren = [
+      const ButtonTile(imagePath: 'lib/images/google.png'),
       SizedBox(
-        width: 35,
+        width: _screenWidth * 0.05,
       ),
-      ButtonTile(
+      const ButtonTile(
         imagePath: 'lib/images/apple.png',
       )
     ];
 
-    const columnLayout = Column(
+    var columnLayout = Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: colChildren,
     );
-    const rowLayout = Row(
+    var rowLayout = Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: rowChildren,
     );
@@ -100,80 +100,100 @@ class _LoginPageState extends State<LoginPage> {
             body: SingleChildScrollView(
               child: SafeArea(
                   child: SizedBox(
-                width: screenWidth,
-                child: Center(
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      top: screenHeight * 0.05,
+                width: _screenWidth,
+                child: Padding(
+                  padding: EdgeInsets.all(resolvedWidth - (resolvedWidth * .9)),
+                  child: Container(
+                    decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        shape: BoxShape.rectangle,
+                        gradient: LinearGradient(
+                          colors: [
+                            AppColors.appPageBackground,
+                            AppColors.inputBackground
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        boxShadow: [BoxShadow(color: AppColors.containerShadow, spreadRadius: 5, blurRadius: 100, offset: Offset(0, 0))]
                     ),
-                    child: SizedBox(
-                      width: resolvedWidth,
-                      child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            const AppLogoTitle(
-                              title: 'My Money',
-                              iconSize: 80,
-                              titleSize: 40,
-                            ),
-                            const SizedBox(
-                              height: 50,
-                            ),
-                            MyTextFormField(
-                                labelText: 'Username',
-                                controller: loginController,
-                                focus: true),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            MyTextFormField(
-                              labelText: 'Password',
-                              controller: passwordController,
-                              obscureText: true,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
+                    child: Center(
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            top: _screenHeight * 0.025,
+                            left: resolvedWidth - (resolvedWidth * 0.9),
+                            right: resolvedWidth - (resolvedWidth * 0.9)),
+                        child: SizedBox(
+                          width: resolvedWidth,
+                          child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text(
-                                  'Forgot password?',
-                                  style: TextStyle(
-                                    color: AppColors.secondaryText,
-                                  ),
+                                const AppLogoTitle(
+                                  title: 'My Money',
+                                  iconSize: 80,
+                                  titleSize: 40,
                                 ),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            AppButton(
-                                action: () => isLoading = !isLoading,
-                                label: "Login"),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            const Text(
-                              'Or continue with',
-                              style: TextStyle(
-                                  fontSize: 18, color: AppColors.secondaryText),
-                            ),
-                            SizedBox(
-                              height: screenHeight * 0.025,
-                            ),
-                            _defineLayout(),
-                            SizedBox(
-                              height: screenHeight * 0.05,
-                            ),
-                            GestureDetector(
-                                onTap: () {}, child: const RegisterLink()),
-                            SizedBox(
-                              height: screenHeight * 0.05,
-                            )
-                            //row (Google, Apple)
-                          ]),
+                                const SizedBox(
+                                  height: 50,
+                                ),
+                                MyTextFormField(
+                                    labelText: 'Username',
+                                    controller: loginController,
+                                    focus: true),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                MyTextFormField(
+                                  labelText: 'Password',
+                                  controller: passwordController,
+                                  obscureText: true,
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                const Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      'Forgot password?',
+                                      style: TextStyle(
+                                        color: AppColors.secondaryText,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                AppButton(
+                                    action: () => isLoading = !isLoading,
+                                    label: "Login"),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                const Text(
+                                  'Or continue with',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: AppColors.secondaryText),
+                                ),
+                                SizedBox(
+                                  height: _screenHeight * 0.025,
+                                ),
+                                _defineLayout(),
+                                SizedBox(
+                                  height: _screenHeight * 0.05,
+                                ),
+                                GestureDetector(
+                                    onTap: () {}, child: const RegisterLink()),
+                                SizedBox(
+                                  height: _screenHeight * 0.05,
+                                )
+                                //row (Google, Apple)
+                              ]),
+                        ),
+                      ),
                     ),
                   ),
                 ),
