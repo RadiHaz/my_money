@@ -83,6 +83,10 @@ class _LoginPageState extends State<LoginPage> {
     bool isMediumScreen = screenWidth > 360 && screenWidth < 768;
     bool isLargeScreen = screenWidth >= 768;
 
+    bool isSmallHeight = screenHeight <= 680;
+    bool isMediumHeight = screenHeight > 680 && screenHeight <= 800;
+    bool isLargeHeight = screenHeight > 800;
+
     // resolve final width to make it dynamic based on screen size
     // screenWidth * 0.8 = 80% of screen's width :)
     //* 0.5 : screenWidth * 0.8
@@ -93,6 +97,12 @@ class _LoginPageState extends State<LoginPage> {
             ? (screenWidth * 0.7)
             : (isLargeScreen ? screenWidth * 0.6 : screenWidth * 0.8));
 
+    double resolvedHeight = isSmallHeight
+        ? (screenHeight * 0.7)
+        : (isMediumHeight
+            ? (screenHeight * 0.6)
+            : (isLargeHeight ? screenHeight * 0.8 : screenHeight * 0.8));
+
     return isLoading
         ? const Center(child: AppLoading())
         : Scaffold(
@@ -102,7 +112,12 @@ class _LoginPageState extends State<LoginPage> {
                   child: SizedBox(
                 width: _screenWidth,
                 child: Padding(
-                  padding: EdgeInsets.all(resolvedWidth - (resolvedWidth * .9)),
+                  padding: EdgeInsets.only(
+                      left: resolvedWidth - (resolvedWidth * .9),
+                      right: resolvedWidth - (resolvedWidth * .9),
+                      top: (resolvedHeight - (resolvedHeight * .925)) * .6
+                  ),
+
                   child: Container(
                     decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(20.0)),
@@ -115,8 +130,13 @@ class _LoginPageState extends State<LoginPage> {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                         ),
-                        boxShadow: [BoxShadow(color: AppColors.containerShadow, spreadRadius: 5, blurRadius: 100, offset: Offset(0, 0))]
-                    ),
+                        boxShadow: [
+                          BoxShadow(
+                              color: AppColors.containerShadow,
+                              spreadRadius: 5,
+                              blurRadius: 100,
+                              offset: Offset(0, 0))
+                        ]),
                     child: Center(
                       child: Padding(
                         padding: EdgeInsets.only(
