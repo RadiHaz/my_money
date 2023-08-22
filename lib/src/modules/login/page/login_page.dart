@@ -124,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                         shape: BoxShape.rectangle,
                         gradient: LinearGradient(
                           colors: [
-                            AppColors.appPageBackground,
+                            AppColors.initialPageBackground,
                             AppColors.inputBackground
                           ],
                           begin: Alignment.bottomRight,
@@ -134,8 +134,8 @@ class _LoginPageState extends State<LoginPage> {
                           BoxShadow(
                               color: AppColors.containerShadow,
                               spreadRadius: 5,
-                              blurRadius: 100,
-                              offset: Offset(0, -125))
+                              blurRadius: 125,
+                              offset: Offset(25, 50))
                         ]),
                     child: Center(
                       child: Padding(
