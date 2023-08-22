@@ -83,10 +83,6 @@ class _LoginPageState extends State<LoginPage> {
     bool isMediumScreen = screenWidth > 360 && screenWidth < 768;
     bool isLargeScreen = screenWidth >= 768;
 
-    bool isSmallHeight = screenHeight <= 680;
-    bool isMediumHeight = screenHeight > 680 && screenHeight <= 800;
-    bool isLargeHeight = screenHeight > 800;
-
     // resolve final width to make it dynamic based on screen size
     // screenWidth * 0.8 = 80% of screen's width :)
     //* 0.5 : screenWidth * 0.8
@@ -97,11 +93,16 @@ class _LoginPageState extends State<LoginPage> {
             ? (screenWidth * 0.7)
             : (isLargeScreen ? screenWidth * 0.6 : screenWidth * 0.8));
 
+
+    bool isSmallHeight = screenHeight <= 680;
+    bool isMediumHeight = screenHeight > 680 && screenHeight <= 800;
+    bool isLargeHeight = screenHeight > 800;
+
     double resolvedHeight = isSmallHeight
-        ? (screenHeight * 0.7)
+        ? (screenHeight * 0.1)
         : (isMediumHeight
-            ? (screenHeight * 0.6)
-            : (isLargeHeight ? screenHeight * 0.8 : screenHeight * 0.8));
+            ? (screenHeight * 0.25)
+            : (isLargeHeight ? screenHeight * 0.7 : screenHeight * 0.2));
 
     return isLoading
         ? const Center(child: AppLoading())
@@ -109,13 +110,12 @@ class _LoginPageState extends State<LoginPage> {
             backgroundColor: AppColors.appPageBackground,
             body: SingleChildScrollView(
               child: SafeArea(
-                  child: SizedBox(
-                width: _screenWidth,
+                  child: Center(
                 child: Padding(
                   padding: EdgeInsets.only(
-                      left: resolvedWidth - (resolvedWidth * .9),
-                      right: resolvedWidth - (resolvedWidth * .9),
-                      top: (resolvedHeight - (resolvedHeight * .925)) * .6
+                      left: resolvedWidth - (resolvedWidth * .925),
+                      right: resolvedWidth - (resolvedWidth * .925),
+                      top: (resolvedHeight * .2),
                   ),
 
                   child: Container(
