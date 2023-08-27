@@ -36,7 +36,7 @@ class AppButton extends StatelessWidget {
       ),
       child: SizedBox(
         width: double.infinity,
-        height: 45,
+        height: 50,
         child: TextButton(
           onPressed: action,
           style: TextButton.styleFrom(
