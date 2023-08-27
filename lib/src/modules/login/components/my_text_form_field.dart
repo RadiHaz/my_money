@@ -25,7 +25,9 @@ class MyTextFormField extends StatelessWidget {
           focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(color: AppColors.logo)),
           enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: AppColors.inputBorder))),
+              borderSide: BorderSide(color: AppColors.inputBorder)),
+          disabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Colors.red))
+      ),
       cursorColor: AppColors.logo,
       enabled: true,
       style: const TextStyle(color: AppColors.mainText),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_money/src/shared/colors/app_colors.dart';
 
+import '../../../shared/components/custom_container.dart';
+
 class RegisterLink extends StatelessWidget {
   const RegisterLink({super.key});
 

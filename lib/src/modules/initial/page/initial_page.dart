@@ -1,9 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:my_money/src/router/app_router.dart';
 import 'package:my_money/src/shared/colors/app_colors.dart';
 import 'package:my_money/src/shared/components/app_logo_title.dart';
+
+import '../../login/page/login_page.dart';
 
 class InitialPage extends StatefulWidget {
   const InitialPage({super.key});
@@ -14,8 +15,8 @@ class InitialPage extends StatefulWidget {
 
 class _InitialPageState extends State<InitialPage> {
   void redirect(BuildContext context) {
-    Timer(const Duration(seconds: 2), () {
-      Navigator.of(context).pushReplacementNamed(AppRouter.login);
+    Timer(const Duration(seconds: 1), () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
     });
   }
 
