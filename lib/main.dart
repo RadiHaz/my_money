@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_money/src/modules/finances/page/personal_data.dart';
 import 'package:my_money/src/modules/initial/page/initial_page.dart';
 import 'package:my_money/src/modules/login/page/login_page.dart';
 import 'package:my_money/src/router/app_router.dart';
@@ -26,6 +27,7 @@ class App extends StatelessWidget {
       routes: {
         AppRouter.login: (context) => const LoginPage(),
         AppRouter.register: (context) => const RegisterPage(),
+        AppRouter.personal: (context) => const PersonalData()
       },
     );
   }

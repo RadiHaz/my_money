@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:my_money/src/shared/helpers/utils.dart';
 
@@ -12,18 +14,19 @@ class CustomContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final resolvedWidth = Utils().getResolvedScreenWidth(context);
     final resolvedHeight = Utils().getResolvedScreenWidth(context);
     final screenHeight = Utils().getScreenHeight(context);
-
+    log('resolvedHeight $resolvedHeight');
+    log('resolvedWidth $resolvedWidth');
+    log('screenHeight $screenHeight');
     return SafeArea(
       child: Center(
         child: Padding(
           padding: EdgeInsets.only(
             left: resolvedWidth - (resolvedWidth * .925),
             right: resolvedWidth - (resolvedWidth * .925),
-            top: (resolvedHeight * .2),
+            top: (resolvedHeight * .275),
           ),
           child: Container(
               decoration: BoxDecoration(
@@ -37,7 +40,7 @@ class CustomContainer extends StatelessWidget {
                     begin: Alignment.bottomLeft,
                     end: Alignment.topRight,
                   ),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                         color: AppColors.containerShadow,
                         spreadRadius: 1,

@@ -75,7 +75,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   controller: confirmPasswordController,
                   obscureText: true),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
               Row(
                 children: [
@@ -89,11 +89,13 @@ class _RegisterPageState extends State<RegisterPage> {
                     activeColor: AppColors.logo,
                   ),
                   const Text('I have read and agreed with the ', style: TextStyle(color: AppColors.mainText),),
-                  const Text('Terms of Use', style: TextStyle(color: AppColors.logo),)
+                  const Text('Terms of Use', style: TextStyle(color: AppColors.logo),),
+                  const Text(' and ', style: TextStyle(color: AppColors.mainText),),
+                  const Text('Privacy Policy.', style: TextStyle(color: AppColors.logo),),
                 ],
               ),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
               AppButton(
                 label: 'Register',
@@ -102,7 +104,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 },
               ),
               SizedBox(
-                height: screenHeight * 0.025,
+                height: screenHeight * 0.035,
               )
             ],
           ),

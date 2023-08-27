@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:my_money/src/modules/finances/page/personal_data.dart';
 import 'package:my_money/src/modules/login/components/button_tile.dart';
 import 'package:my_money/src/modules/login/components/my_text_form_field.dart';
 import 'package:my_money/src/modules/login/components/register_link.dart';
@@ -65,7 +66,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-
     double screenHeight = Utils().getScreenHeight(context);
     double screenWidth = Utils().getScreenWidth(context);
 
@@ -135,7 +135,10 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     TextButton(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterPage()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const RegisterPage()));
                         },
                         child: const RegisterLink()),
                     SizedBox(
