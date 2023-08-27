@@ -3,6 +3,8 @@ import 'package:my_money/src/modules/initial/page/initial_page.dart';
 import 'package:my_money/src/modules/login/page/login_page.dart';
 import 'package:my_money/src/router/app_router.dart';
 
+import 'src/modules/register/page/register_page.dart';
+
 void main() {
   runApp(const App());
 }
@@ -23,6 +25,7 @@ class App extends StatelessWidget {
       darkTheme: ThemeData.dark(),
       routes: {
         AppRouter.login: (context) => const LoginPage(),
+        AppRouter.register: (context) => const RegisterPage(),
       },
     );
   }
