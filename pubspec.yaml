@@ -37,6 +37,7 @@ dependencies:
   mobx: ^2.2.0
   gradient_borders: ^1.0.0
   dio: ^4.0.6
+  flutter_secure_storage: ^8.0.0
 
 dev_dependencies:
   flutter_test:
