@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../colors/app_colors.dart';
+
 class AppSnackbar {
   static void openMessage({
     required BuildContext context,
@@ -7,7 +9,7 @@ class AppSnackbar {
   }) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         duration: const Duration(seconds: 4),
-        backgroundColor: Colors.green,
+        backgroundColor: AppColors.logo,
         elevation: 50,
         margin: const EdgeInsets.all(10),
         behavior: SnackBarBehavior.floating,
